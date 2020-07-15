@@ -92,12 +92,17 @@
   }
 }
 
-.btn-city-save {
+.btn-city-save,
+.btn-upload {
   display: inline-block;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.btn-city-save {
   float: right;
 }
+
 
 
 @media screen and (max-width: 842px){
