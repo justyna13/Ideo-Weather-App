@@ -19,13 +19,11 @@ const cityReducer = (state = initialState, action) => {
            return state;
 
         case citiesActionTypes.UPDATE_CITIES_LIST_ERROR:
-            console.log(action.error);
             return {
                 ...state,
                 error: action.error.message,
             }
         case citiesActionTypes.SET_SELECTED_CITY:
-            console.log('city action', action.currentCity)
 
             if(action.currentCity) {
                 return {
@@ -34,7 +32,6 @@ const cityReducer = (state = initialState, action) => {
                     error: null
                 }
             } else {
-                console.log('state', state);
                 return {
                     ...state,
                     currentCity: {

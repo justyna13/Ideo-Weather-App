@@ -14,7 +14,6 @@ const authReducer = (state = initialState, action) => {
                 authError: 'Login failed'
             };
         case AuthActionTypes.LOGIN_SUCCESS:
-            console.log('payload', action.payload);
             return {
                 ...state,
                 currentUser: action.payload,

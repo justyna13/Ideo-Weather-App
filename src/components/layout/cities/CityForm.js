@@ -58,7 +58,6 @@ const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
             }, () => {
                 storage.ref('images').child(imageAsFile.name).getDownloadURL()
                     .then(fireBaseUrl => {
-                        console.log('url')
                         console.log(fireBaseUrl);
                         setImageAsUrl(prevObj => ({...prevObj, imgUrl: fireBaseUrl}));
                         handleNewChange('imgUrl', fireBaseUrl);

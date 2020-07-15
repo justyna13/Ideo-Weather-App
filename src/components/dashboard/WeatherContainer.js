@@ -184,7 +184,7 @@ class WeatherContainer extends React.Component {
                 fetch(url.toString())
                     .then(response => response.json())
                     .then(data => {
-                        console.log('fetched data', data);
+
                         let currentWeather =  this.getCurrentWeather(data.current);
                         let hourlyWeather = this.getHourlyForecast(data.hourly);
                         let weeklyForecast = this.getWeeklyForecast(data.daily);
@@ -267,7 +267,6 @@ WeatherContainer.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         cities: state.cities,
         weather: state.weather.weather,

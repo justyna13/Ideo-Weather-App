@@ -73,7 +73,6 @@ class SignUp extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    console.log('sign', state);
     return {
         currentUser: state.auth.currentUser,
         auth: state.firebase.auth,

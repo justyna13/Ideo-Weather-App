@@ -23,7 +23,6 @@ export const updateCitiesList = (e, prevState, cityId, cityLat, cityLon, cityNam
             favCities: prevState.favCities
         }
 
-        console.log(userData.favCities);
 
         firestore.collection('users').doc(userId).update(userData).then( () => {
             dispatch({ type: CitiesActionTypes.UPDATE_CITIES_LIST, currentCity: newCity })
@@ -44,8 +43,6 @@ export const deleteFavCity = (e, cityId, userId, isSelected, currentlySelectedCi
         let currentlySelectedCity = prevState.favCities.filter(city => city.id === currentlySelectedCityId);
 
 
-        console.log('currently selected', currentlySelectedCity[0]);
-
         if (isSelected) {
             selectedCity = null;
         } else {
@@ -62,8 +59,6 @@ export const deleteFavCity = (e, cityId, userId, isSelected, currentlySelectedCi
             favCities: filteredFavCities,
         }
 
-
-        console.log('w action', selectedCity);
 
 
         firestore.collection('users').doc(userId).update(userData).then(() => {
