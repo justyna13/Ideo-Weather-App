@@ -39,7 +39,7 @@ CityCardsContainer.propTypes = {
         lon: PropTypes.number
         })),
     handleSubmit: PropTypes.func.isRequired,
-    handleImgChange: PropTypes.func
+    handleImgChange: PropTypes.func,
 }
 
 

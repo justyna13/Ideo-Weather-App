@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 
 const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
 
-    let [citySelected, setCitySelected] = useState(false);
 
     const allInputs = {imgUrl: ''};
     const [imageAsFile, setImageAsFile] = useState(allInputs);
@@ -72,15 +71,10 @@ const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
         e.preventDefault();
 
         if (cityId) {
-            setCitySelected(true);
             handleClose();
             handleSubmit = handleSubmit.bind(this);
             handleSubmit(e, cityId, cityLat, cityLon, cityName);
-        } else {
-            setCitySelected(false);
         }
-
-
 
     }
 
@@ -92,7 +86,7 @@ const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
        <form onSubmit={handleFormSubmit}>
 
 
-           <p>Select new city to follow</p>
+           <p>Select new city</p>
 
            <Select
                isSearchable={true}
@@ -111,7 +105,7 @@ const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
 
 
            <div className="my-5">
-               <p>Customize followed city by adding your own photo (optional) </p>
+               <p>Customize new city card by adding your own photo (optional) </p>
                <input
                    onChange={handleImageAsFile}
                    type="file" />
@@ -129,8 +123,6 @@ const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
                      <button className="btn btn-outline-dark btn-city-save" disabled={loadingPhoto}>Add city</button>
                </span>
            :   <button className="btn btn-outline-dark btn-city-save" disabled={loadingPhoto}>Add city</button> }
-
-
 
        </form>
 

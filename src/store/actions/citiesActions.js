@@ -60,7 +60,6 @@ export const deleteFavCity = (e, cityId, userId, isSelected, currentlySelectedCi
         }
 
 
-
         firestore.collection('users').doc(userId).update(userData).then(() => {
             dispatch({type: CitiesActionTypes.UPDATE_CITIES_LIST, currentCity: selectedCity});
             dispatch({type: CitiesActionTypes.SET_SELECTED_CITY, currentCity: selectedCity});

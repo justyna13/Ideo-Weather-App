@@ -3,11 +3,13 @@ import {Card} from "react-bootstrap";
 import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCloudSun} from "@fortawesome/free-solid-svg-icons";
+import {connect} from "react-redux";
 
-const CityCard = ({ id, name, handleCardSelect, imgUrl}) => {
+const CityCard = ({ id, name, handleCardSelect, imgUrl, selectedCity}) => {
+
 
     return (
-        <Card key={id} className="city-card" onClick={() => handleCardSelect(id)}>
+        <Card key={id} className={(selectedCity === id) ? "city-card city-card-active": "city-card"} onClick={() => handleCardSelect(id)}>
 
             <Card.Body className={imgUrl ? "city-card__body": "city-card__body city-card-with-border"}>
                 {imgUrl ?
@@ -39,4 +41,10 @@ CityCard.propTypes = {
     imgUrl: PropTypes.string
 }
 
-export default CityCard;
+const mapStateToProps = (state) => {
+    return {
+        selectedCity: state.cities.currentCity.id,
+    }
+}
+
+export default connect(mapStateToProps)(CityCard);

@@ -138,7 +138,6 @@ class WeatherContainer extends React.Component {
 
 
         data.map(data => {
-
             let dailyData = {
                 temp: 0,
                 humidity: 0,
@@ -154,6 +153,7 @@ class WeatherContainer extends React.Component {
             dailyData.temp = Math.floor(data.temp.day);
 
             weeklyForecast.push(dailyData);
+
         })
 
         return weeklyForecast;
