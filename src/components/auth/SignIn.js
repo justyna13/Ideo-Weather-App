@@ -1,13 +1,19 @@
 import React from "react";
 import {NavLink, Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { signIn } from "../../store/actions/authActions";
+import {initAuth, signIn} from "../../store/actions/authActions";
 
 class SignIn extends React.Component {
     state = {
         email: '',
-        password: ''
+        password: '',
     };
+
+    componentDidMount() {
+       this.props.initAuthDispatcher();
+    }
+
+
 
     handleChange = (e) => {
         this.setState({
@@ -67,7 +73,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        signIn: (creds) => dispatch(signIn(creds))
+        signIn: (creds) => dispatch(signIn(creds)),
+        initAuthDispatcher: () => dispatch(initAuth()),
     }
 };
 

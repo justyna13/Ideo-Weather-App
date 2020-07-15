@@ -8,10 +8,15 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
+        case AuthActionTypes.INIT_AUTH:
+            return {
+                ...state,
+                authError: null
+            }
         case AuthActionTypes.LOGIN_ERROR:
             return {
                 ...state,
-                authError: 'Login failed'
+                authError: action.error.message
             };
         case AuthActionTypes.LOGIN_SUCCESS:
             return {

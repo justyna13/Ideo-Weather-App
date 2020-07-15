@@ -1,5 +1,11 @@
 import AuthActionTypes from './../types/authTypes'
 
+export const initAuth = () => {
+    return (dispatch) => {
+        dispatch({type: AuthActionTypes.INIT_AUTH})
+    }
+}
+
 
 export const signIn = (credentials) => {
     return (dispatch, getState, { getFirebase }) => {

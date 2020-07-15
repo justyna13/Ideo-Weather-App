@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import {NavLink, Redirect} from "react-router-dom";
-import { signUp } from "../../store/actions/authActions";
+import {initAuth, signUp} from "../../store/actions/authActions";
 
 
 class SignUp extends React.Component {
@@ -11,6 +11,10 @@ class SignUp extends React.Component {
         email: '',
         password: ''
     };
+
+    componentDidMount() {
+        this.props.initAuthDispatcher();
+    }
 
     handleChange = (e) => {
         this.setState({
@@ -54,7 +58,7 @@ class SignUp extends React.Component {
                     </div>
 
                     <div className="input-field btn-submit col-md-6">
-                        <button className="btn">Sign up</button>
+                        <button className="btn btn-outline-dark">Sign up</button>
                     </div>
 
                     <div className="red-text">
@@ -83,7 +87,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        signUp: (newUser) => dispatch(signUp(newUser))
+        signUp: (newUser) => dispatch(signUp(newUser)),
+        initAuthDispatcher: () => dispatch(initAuth()),
     }
 };
 
