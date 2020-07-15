@@ -30,7 +30,6 @@ const authReducer = (state = initialState, action) => {
                 currentUser: null
             }
         case AuthActionTypes.SIGNUP_SUCCESS:
-            console.log('success');
             return {
                 ...state,
                 authError: null,

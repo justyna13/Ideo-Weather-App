@@ -29,6 +29,7 @@ class WeatherContainer extends React.Component {
 
     componentDidMount() {
         setInterval(this.getWeather, 60000);
+
     }
 
 
@@ -36,7 +37,7 @@ class WeatherContainer extends React.Component {
 
         let newCurrentCity = this.props.profile.favCities.filter(city => city.id === id);
 
-        let selectedCity = {...this.props.cities.currentCity};
+        let selectedCity = {...this.props.currentCity};
 
         selectedCity.id = newCurrentCity[0].id;
         selectedCity.latitude = newCurrentCity[0].lat;
@@ -162,14 +163,13 @@ class WeatherContainer extends React.Component {
 
     async getWeather() {
 
-
-        if (this.props.cities.currentCity.id) {
+        if (this.props.currentCity.id) {
             try {
                 let url =  new URL('https://api.openweathermap.org/data/2.5/onecall?');
 
                 let params = {
-                    lat: this.props.cities.currentCity.latitude,
-                    lon: this.props.cities.currentCity.longitude,
+                    lat: this.props.currentCity.latitude,
+                    lon: this.props.currentCity.longitude,
                     units: 'metric',
                     exclude: 'minutely',
                     appid: "2c4399e8320a03138c1616aec7eadb72"
@@ -179,7 +179,7 @@ class WeatherContainer extends React.Component {
 
                 this.setState({isFetching: true});
 
-                console.log(this.props.cities.currentCity.name);
+                console.log(this.props.currentCity.name);
 
                 fetch(url.toString())
                     .then(response => response.json())
@@ -231,9 +231,8 @@ class WeatherContainer extends React.Component {
                                         setCurrentCity={this.setCurrentCity} />
                                 </div>
 
-                                {this.props.cities.currentCity.id ?
-                                    <UserProfile />
-                                    : null
+                                {this.props.currentCity.id ?
+                                    <UserProfile /> : null
                                 }
 
                             </div>
@@ -263,12 +262,16 @@ WeatherContainer.propTypes = {
             lon: PropTypes.number.isRequired,
             name: PropTypes.string.isRequired,
         }))
-    })
+    }),
+    currentCity: PropTypes.object.isRequired,
+    weather: PropTypes.object.isRequired,
 }
 
+
 const mapStateToProps = (state) => {
+    console.log(state.cities.currentCity)
     return {
-        cities: state.cities,
+        currentCity: state.cities.currentCity,
         weather: state.weather.weather,
         currentUser: state.auth.currentUser,
         auth: state.firebase.auth,

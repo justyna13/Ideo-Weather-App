@@ -5,8 +5,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCloudSun} from "@fortawesome/free-solid-svg-icons";
 import {connect} from "react-redux";
 
-const CityCard = ({ id, name, handleCardSelect, imgUrl, selectedCity}) => {
 
+const CityCard = ({ id, name, handleCardSelect, imgUrl, selectedCity}) => {
 
     return (
         <Card key={id} className={(selectedCity === id) ? "city-card city-card-active": "city-card"} onClick={() => handleCardSelect(id)}>
@@ -38,7 +38,8 @@ CityCard.propTypes = {
     handleCardSelect: PropTypes.func.isRequired,
     id: PropTypes.number,
     name: PropTypes.string,
-    imgUrl: PropTypes.string
+    imgUrl: PropTypes.string,
+    selectedCity: PropTypes.number
 }
 
 const mapStateToProps = (state) => {

@@ -18,6 +18,7 @@ const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
     const [cityLon, setCityLon] = useState(0);
     const [cityName, setCityName] = useState('');
 
+
     const handleChange = (val) => {
 
         let cityCountryName = val.name + ', ' + val.country;
@@ -35,9 +36,8 @@ const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
     const handleImageAsFile = (e) => {
         const image = e.target.files[0];
         setImageAsFile(imageFile => (image));
-
-
     }
+
 
     const handleFirebaseUpload = (e) => {
         e.preventDefault();
@@ -110,7 +110,10 @@ const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
                    onChange={handleImageAsFile}
                    type="file" />
 
-               <button className="btn btn-success btn-upload" onClick={handleFirebaseUpload} disabled={loadingPhoto}>Upload photo</button>
+               <button
+                   className="btn btn-success btn-upload"
+                   onClick={handleFirebaseUpload}
+                   disabled={loadingPhoto}>Upload photo</button>
            </div>
 
            {loadingPhoto ?

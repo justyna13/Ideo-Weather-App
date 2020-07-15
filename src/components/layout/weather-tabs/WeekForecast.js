@@ -7,7 +7,7 @@ const WeekForecast = ({weather}) => {
 
     return (
         <div>
-            {weather.weeklyForecast.map(dailyWeather => {
+            {weather.map(dailyWeather => {
                 return (
 
                     <DayForecast
@@ -27,7 +27,7 @@ const WeekForecast = ({weather}) => {
 
 const mapStateToProps = (state) => {
     return {
-        weather: state.weather.weather,
+        weather: state.weather.weather.weeklyForecast,
     }
 }
 

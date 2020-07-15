@@ -1,14 +1,29 @@
 body {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   background: $clr-blue-light;
+  box-sizing: border-box;
   color: $clr-dark-blue;
   font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 
 .wrapper {
   margin: 0 auto;
+}
 
+
+.alert-city-info {
+  height: min-content;
+}
+
+.btn-city-save,
+.btn-upload {
+  display: inline-block;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-city-save {
+  float: right;
 }

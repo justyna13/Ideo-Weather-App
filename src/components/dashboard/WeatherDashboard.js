@@ -60,7 +60,7 @@ class WeatherDashboard extends React.Component {
                     }
 
 
-                    {this.props.weather.weeklyForecast[0] && this.props.profile.isLoaded && this.props.cities.currentCity.id ?
+                    {this.props.weather && this.props.profile.isLoaded && this.props.currentCityId ?
                         <WeatherTabs />
                             : (this.props.isFetching) ?
                                 <Alert variant="info" className="status-info">Data fetching, please wait...</Alert>
@@ -76,30 +76,23 @@ class WeatherDashboard extends React.Component {
 
 }
 
+
 WeatherDashboard.propTypes = {
     getNewCity: PropTypes.func.isRequired,
     setCurrentCity: PropTypes.func.isRequired,
     alreadyAdded: PropTypes.bool,
-    weeklyForecast: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number,
-        day: PropTypes.string,
-        icon: PropTypes.string,
-        humidity: PropTypes.number,
-        temp: PropTypes.number
-    })),
     isFetching: PropTypes.bool,
+    currentCityId: PropTypes.number.isRequired
 }
 
 const mapStateToProps = (state) => {
     return {
         auth: state.firebase.auth,
         profile: state.firebase.profile,
-        weather: state.weather.weather,
-        cities: state.cities
+        weather: state.weather.weather.weeklyForecast[0],
+        currentCityId: state.cities.currentCity.id
     }
 }
-
-
 
 
 export default connect(mapStateToProps)(WeatherDashboard);

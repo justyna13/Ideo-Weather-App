@@ -1,3 +1,60 @@
+.fav-cities__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem auto;
+
+  .city-card-active {
+    height: 310px;
+    width: 210px;
+  }
+
+
+  .city-card,
+  .add-city__card {
+    border: 0;
+    cursor: pointer;
+    margin: 10px auto;
+    text-align: center;
+
+    img {
+      border-radius: 10px;
+      color: $clr-grey;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+  }
+
+  .add-city__card {
+    height: 200px;
+    margin: 10px auto;
+    width: 150px;
+
+    .card-body {
+      border: 3px solid $clr-violet;
+      border-radius: 20px;
+      color: $clr-violet;
+      font-weight: bold;
+      position: relative;
+    }
+
+
+    .card-body div {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .card-body span {
+        font-size: 2rem;
+    }
+
+  }
+
+}
+
+
 .city-card {
   cursor: pointer;
   height: 300px;
@@ -10,6 +67,11 @@
     border-radius: 20px;
     padding: 0;
     position: relative;
+  }
+
+  .card-body {
+    height: 100%;
+    width: 100%;
   }
 
 
@@ -35,89 +97,16 @@
   p {
     margin: 10px 0;
   }
-}
 
 
-.fav-cities__wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 2rem auto;
-
-
-  .city-card,
-  .add-city__card {
-    border: 0;
-    cursor: pointer;
-    margin: 10px auto;
-    text-align: center;
-
-    img {
-      border-radius: 10px;
-      color: $clr-grey;
-      font-size: 1rem;
-      text-align: center;
-    }
-
-  }
-
-  .city-card-active {
-    height: 310px;
-    width: 210px;
-  }
-
-  .add-city__card {
-    height: 200px;
-    margin: 10px auto;
-    width: 150px;
-
-    .card-body {
-      border: 3px solid $clr-violet;
-      border-radius: 20px;
-      color: $clr-violet;
-      font-weight: bold;
-      position: relative;
-
-
-      div {
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      span {
-        font-size: 2rem;
-      }
-    }
-  }
-
-  .card-body {
-    height: 100%;
-    width: 100%;
-  }
-}
-
-.alert-city-info {
-  height: min-content;
-}
-
-.btn-city-save,
-.btn-upload {
-  display: inline-block;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.btn-city-save {
-  float: right;
 }
 
 
 
 @media screen and (max-width: 842px){
   .fav-cities__wrapper .add-city__card {
-    width: 200px;
     height: 200px;
+    width: 200px;
   }
 }
 

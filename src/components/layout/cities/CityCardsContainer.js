@@ -3,6 +3,7 @@ import CityCard from "./CityCard";
 import AddCityModal from "./AddCityModal";
 import PropTypes from 'prop-types';
 
+
 const CityCardsContainer = ({favCities, handleSubmit, handleImgChange, handleCurrentCityChange }) => {
 
 
