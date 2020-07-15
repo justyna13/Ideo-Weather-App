@@ -13,7 +13,7 @@ class WeatherDashboard extends React.Component {
         super(props);
 
         this.state = {
-            imgUrl: ''
+            imgUrl: '',
         }
 
         this.handleCurrentCityChange = this.handleCurrentCityChange.bind(this);
@@ -29,6 +29,7 @@ class WeatherDashboard extends React.Component {
 
         this.props.getNewCity(e, cityId, cityLat, cityLon, cityName, this.state.imgUrl);
         this.setState({imgUrl: ''});
+
     }
 
     handleCurrentCityChange = (cityId) => {

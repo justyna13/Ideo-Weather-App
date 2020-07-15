@@ -2,11 +2,12 @@ import React, {useState} from "react";
 import Select from "react-select";
 import jsonData from "../../../assets/data/city.list.json";
 import {storage} from "../../../config/firebaseConfig";
-import Card from "react-bootstrap/Card";
 
 import PropTypes from 'prop-types';
 
 const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
+
+    let [citySelected, setCitySelected] = useState(false);
 
     const allInputs = {imgUrl: ''};
     const [imageAsFile, setImageAsFile] = useState(allInputs);
@@ -70,9 +71,16 @@ const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
-        handleClose();
-        handleSubmit = handleSubmit.bind(this);
-        handleSubmit(e, cityId, cityLat, cityLon, cityName);
+        if (cityId) {
+            setCitySelected(true);
+            handleClose();
+            handleSubmit = handleSubmit.bind(this);
+            handleSubmit(e, cityId, cityLat, cityLon, cityName);
+        } else {
+            setCitySelected(false);
+        }
+
+
 
     }
 
@@ -101,6 +109,7 @@ const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
                filterOption={({label}, query) => label.indexOf(query) >= 0 && i++ < resultLimit} onInputChange={() => { i = 0 }}
            />
 
+
            <div className="my-5">
                <p>Customize followed city by adding your own photo (optional) </p>
                <input
@@ -120,6 +129,7 @@ const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
                      <button className="btn btn-outline-dark btn-city-save" disabled={loadingPhoto}>Add city</button>
                </span>
            :   <button className="btn btn-outline-dark btn-city-save" disabled={loadingPhoto}>Add city</button> }
+
 
 
        </form>
