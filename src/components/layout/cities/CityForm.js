@@ -107,7 +107,7 @@ const CityForm = ({handleSubmit, handleImgChange, handleClose}) => {
                    onChange={handleImageAsFile}
                    type="file" />
 
-               <button className="btn" onClick={handleFirebaseUpload} disabled={loadingPhoto}>Upload photo</button>
+               <button className="btn btn-success" onClick={handleFirebaseUpload} disabled={loadingPhoto}>Upload photo</button>
            </div>
 
            {loadingPhoto ?
