@@ -1,0 +1,7 @@
+const CitiesActionTypes = {
+    UPDATE_CITIES_LIST: 'UPDATE_CITIES_LIST',
+    UPDATE_CITIES_LIST_ERROR: 'UPDATE_CITIES_LIST_ERROR',
+    SET_SELECTED_CITY: 'SET_SELECTED_CITY',
+}
+
+export default CitiesActionTypes;

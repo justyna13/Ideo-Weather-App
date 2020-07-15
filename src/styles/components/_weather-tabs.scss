@@ -1,0 +1,18 @@
+
+.daily-forecast__row {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: auto;
+
+}
+
+.daily-forecast__row p,
+.daily-forecast__row span {
+  flex: 1 0 21%;
+  margin: 5px;
+}
+
+canvas {
+ margin: 1.5rem auto;
+}

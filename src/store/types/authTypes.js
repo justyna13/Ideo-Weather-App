@@ -1,0 +1,9 @@
+const AuthActionTypes = {
+    LOGIN_SUCCESS: 'LOGIN_SUCCESS',
+    LOGIN_ERROR: 'LOGIN_ERROR',
+    SIGNOUT_SUCCESS: 'SIGNOUT_SUCCESS',
+    SIGNUP_SUCCESS: 'SIGNUP_SUCCESS',
+    SIGNUP_ERROR: 'SIGNUP_ERROR',
+}
+
+export default AuthActionTypes;
